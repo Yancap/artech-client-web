@@ -1,0 +1,29 @@
+<nav>
+  <div class="container">
+    <ul>
+      @for (category of categoriesToNavbar; track $index) {
+      <li class="category-item">
+        <a routerLink="/category/{{ category }}">{{ category }}</a>
+      </li>
+      }
+      <li class="category-item action" (click)="toggleMenu()">
+        @if (isMenuOpened) {
+
+        <app-svg name="close" />
+        } @else {
+        <app-svg name="menu-dots" />
+
+        }
+      </li>
+    </ul>
+    <div class="menu-dots-categories" [class.open]="isMenuOpened">
+      <ul>
+        @for (category of categoriesToMenu; track $index) {
+        <li class="category-item">
+          <a routerLink="/category/{{ category }}">{{ category }}</a>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

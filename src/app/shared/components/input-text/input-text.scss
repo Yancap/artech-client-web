@@ -1,0 +1,209 @@
+div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.container-input {
+  position: relative;
+}
+
+.input-toggle {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+}
+
+label {
+  -webkit-user-select: none; /* Safari e Chrome */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer 10+ */
+  user-select: none; /* Padrão moderno */
+}
+
+div.normal {
+  label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark-purple-400);
+  }
+  input {
+    background-color: var(--dark-purple-900);
+    border: 0.25px solid var(--purple-500);
+    border-radius: 0.25rem;
+    color: var(--dark-purple-100);
+    outline: none;
+  }
+  input::placeholder {
+    color: var(--dark-purple-400);
+  }
+  input:focus {
+    outline: 1.5px solid var(--purple-700);
+  }
+
+  &.input-md {
+    label {
+      font-size: 1.25rem;
+    }
+
+    input {
+      padding: 0.75rem 0.875rem;
+      font-size: 1rem;
+    }
+
+    .input-toggle {
+      right: 1rem;
+    }
+    @media (max-width: 340px) {
+      .input-toggle {
+        right: 1rem;
+      }
+    }
+  }
+
+  &.input-sm {
+    label {
+      font-size: 1rem;
+    }
+
+    input {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+    }
+    .input-toggle {
+      right: 1rem;
+    }
+    @media (max-width: 340px) {
+      .input-toggle {
+        right: 1rem;
+      }
+    }
+  }
+}
+
+div.alternative {
+  label {
+    font-style: "Poppins", sans-serif;
+    font-weight: 800;
+    color: var(--dark-purple-400);
+  }
+  input {
+    background-color: var(--dark-purple-800);
+    border: none;
+    border-radius: 0.25rem;
+    outline: none;
+    color: var(--dark-purple-100);
+  }
+  input::placeholder {
+    color: var(--dark-purple-400);
+  }
+  input:focus {
+    outline: 1.5px solid var(--purple-700);
+    border: 0.25px solid var(--purple-500);
+    color: var(--dark-purple-100);
+  }
+
+  &.input-lg {
+    label {
+      font-size: 1.25rem;
+    }
+
+    input {
+      padding: 1rem 1.15rem;
+      font-size: 1.15rem;
+    }
+
+    .input-toggle {
+      right: 1rem;
+    }
+  }
+
+  &.input-md {
+    label {
+      font-size: 1rem;
+    }
+
+    input {
+      padding: 0.75rem 0.875rem;
+      font-size: 1rem;
+    }
+
+    .input-toggle {
+      right: 1rem;
+    }
+  }
+
+  &.input-sm {
+    label {
+      font-size: 0.875rem;
+    }
+
+    input {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+    }
+
+    .input-toggle {
+      right: 1rem;
+    }
+  }
+}
+
+div.type-file {
+  /* Esconde o input */
+  input[type="file"] {
+    display: none;
+  }
+  &.alternative {
+    label {
+      background-color: var(--dark-purple-800);
+      border: none;
+      border-radius: 0.25rem;
+      outline: none;
+      cursor: pointer;
+      height: 30rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    span {
+      font-style: "Poppins", sans-serif;
+      font-weight: 800;
+      color: var(--dark-purple-400);
+    }
+  }
+}
+
+div.error {
+  input {
+    border: 0.25px solid var(--red-500);
+  }
+}
+
+:host {
+  ::ng-deep {
+    .container-input {
+      .input-lg {
+        svg {
+          width: 1.625rem;
+          width: 1.125rem;
+        }
+      }
+
+      app-svg {
+        &:hover {
+          svg path {
+            fill: var(--purple-700);
+          }
+        }
+      }
+      svg path {
+        fill: var(--purple-300);
+        transition: 0.25s;
+      }
+    }
+  }
+}

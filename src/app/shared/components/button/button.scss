@@ -1,0 +1,160 @@
+button {
+  border-radius: 0.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.15s;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.btn-md {
+  padding: 0.75rem 2rem;
+  font-size: 1.25rem;
+  &:active {
+    transform: scale(1.035);
+  }
+}
+
+.btn-sm {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  gap: 0.75rem;
+  font-weight: 400;
+  &:active {
+    transform: scale(1.025);
+  }
+}
+
+.btn-xs {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  gap: 0.35rem;
+  font-weight: 500;
+  &:active {
+    transform: scale(1.015);
+  }
+}
+
+.primary {
+  background: var(--purple-500);
+  color: white;
+
+  &:hover {
+    background: var(--purple-700);
+  }
+  &:active {
+    box-shadow: 0px 0px 10px var(--purple-700);
+  }
+  &:disabled {
+    background: var(--dark-purple-500);
+    color:  var(--dark-purple-300);
+    cursor: not-allowed;
+    &:active {
+      box-shadow: none;
+      transform:none;
+    }
+  }
+}
+
+.secondary {
+  background: var(--purple-300);
+  color: white;
+
+  &:hover {
+    background: var(--purple-400);
+  }
+  &:active {
+    box-shadow: 0px 0px 10px var(--purple-400);
+  }
+
+  &:disabled {
+    background: var(--dark-purple-300);
+    color:  var(--dark-purple-400);
+    cursor: not-allowed;
+    &:active {
+      box-shadow: none;
+      transform:none;
+    }
+  }
+}
+
+.tertiary {
+  background: var(--dark-purple-750);
+  color: var(--dark-purple-300);
+
+  &:hover {
+    background: var(--dark-purple-700);
+  }
+  &:active {
+    box-shadow: 0px 0px 10px var(--dark-purple-700);
+  }
+
+  &:disabled {
+    background: var(--dark-purple-300);
+    color:  var(--dark-purple-400);
+    cursor: not-allowed;
+    &:active {
+      box-shadow: none;
+      transform:none;
+    }
+  }
+}
+
+.error {
+  background: var(--red-500);
+  color: white;
+
+  &:hover {
+    background: var(--red-700);
+  }
+  &:active {
+    box-shadow: 0px 0px 10px var(--red-700);
+  }
+}
+
+.active {
+  background: var(--green-700);
+  color: white;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+  &:active {
+    box-shadow: 0px 0px 10px var(--green-500);
+  }
+}
+
+:host {
+  ::ng-deep {
+    .primary {
+      svg path {
+        fill: white;
+      }
+    }
+
+    .secondary {
+      svg path {
+        fill: white;
+      }
+    }
+
+    .btn-sm {
+      svg {
+        width: 1rem;
+        height: auto;
+      }
+    }
+    .btn-xs {
+      svg {
+        width: 0.65rem;
+        height: auto;
+      }
+    }
+  }
+}

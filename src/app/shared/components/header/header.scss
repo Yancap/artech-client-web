@@ -1,0 +1,40 @@
+header {
+  padding: 1rem 0;
+  background: var(--dark-purple-900);
+  border-bottom: 1px solid var(--purple-700);
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    height: 4rem;
+    img {
+      height: auto;
+      width: 12rem;
+    }
+  }
+
+  .search-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+    @media (min-width: 992px) {
+      gap: 4rem;
+    }
+    @media (min-width: 1180px) {
+      gap: 6rem;
+    }
+  }
+
+  .profile-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 900px) {
+    > div img {
+      display: none;
+    }
+  }
+}

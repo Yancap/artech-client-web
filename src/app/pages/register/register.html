@@ -1,0 +1,44 @@
+<main>
+  <ng-template #containerModals> </ng-template>
+  <app-svg name="arrow-left" class="arrow-left" />
+  <div>
+    <form>
+      <div class="container-input-text">
+        <app-input-text
+          label="Nome"
+          placeholder="Digite seu nome"
+          (onChange)="onInput($event, 'name')"
+        />
+        <app-input-text
+          label="E-mail"
+          placeholder="Digite seu e-mail"
+          (onChange)="onInput($event, 'email')"
+        />
+        <div class="container-password">
+          <app-input-text
+            label="Senha"
+            placeholder="Digite sua senha"
+            type="password"
+            (onChange)="onInput($event, 'password')"
+          />
+          <app-input-text
+            label="Confirmar senha"
+            placeholder="Confirme sua senha"
+            type="password"
+            (onChange)="onInput($event, 'confirmPassword')"
+          />
+        </div>
+        <a routerLink="/login">Já tenho cadastro</a>
+        <app-button (click)="register($event)">Registrar</app-button>
+      </div>
+      <div class="avatar">
+        <app-input-image
+          [label]="'  '"
+          svg="person"
+          (onChange)="onInput($event, 'imageBlob')"
+          [value]="formRegister.imageBlob"
+        />
+      </div>
+    </form>
+  </div>
+</main>

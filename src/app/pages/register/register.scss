@@ -1,0 +1,103 @@
+main {
+  height: 100vh;
+  width: 100vw;
+  padding: 2rem;
+}
+
+main > div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  gap: 2rem;
+}
+
+.avatar {
+  height: 10rem;
+  width: 10rem;
+  margin-top: 1.25rem;
+}
+
+.container-input-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 40vw;
+}
+
+.container-password {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  app-input-text {
+    flex-grow: 1;
+  }
+}
+
+a {
+  color: var(--purple-700);
+  text-decoration: underline;
+}
+
+app-button {
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  main {
+    place-content: inherit;
+    background-color: var(--dark-purple-900);
+  }
+
+  .container-input-text {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 600px) {
+  form {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .avatar {
+    order: 1;
+  }
+
+  .container-input-text {
+    order: 2;
+  }
+
+  .container-password {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+}
+
+:host {
+  ::ng-deep {
+    app-svg.arrow-left {
+      cursor: pointer;
+      svg {
+        height: 1.5rem;
+        width: 1.5rem;
+
+        path {
+          fill: var(--purple-500);
+        }
+      }
+      &:hover {
+        path {
+          fill: var(--purple-700);
+        }
+      }
+    }
+  }
+}

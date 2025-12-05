@@ -1,0 +1,18 @@
+<main>
+  <ng-template #containerModals> </ng-template>
+  
+  <app-svg name="arrow-left" class="arrow-left" (click)="goHome()"/>
+  <div>
+    <form>
+      <app-input-text label="Email" placeholder="seu@email.com" (onChange)="email($event)" />
+      <app-input-text
+        label="Senha"
+        placeholder="Senha"
+        type="password"
+        (onChange)="password($event)"
+      />
+      <a routerLink="/register">Não tenho cadastro</a>
+      <app-button (click)="login($event)">Entrar</app-button>
+    </form>
+  </div>
+</main>

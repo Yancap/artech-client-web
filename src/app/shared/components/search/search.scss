@@ -1,0 +1,29 @@
+div {
+  display: flex;
+  background: var(--dark-purple-800);
+  border-radius: 1000px;
+  
+  align-items: center;
+  overflow: hidden;
+}
+
+input {
+  outline: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  background: none;
+  color: var(--dark-purple-100);
+  &::placeholder {
+    color: var(--dark-purple-500);
+  }
+}
+
+app-svg {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background: var(--dark-purple-800);
+  transition: 0.4s;
+  &:hover {
+    filter: contrast(1.05);
+  }
+}

@@ -1,0 +1,41 @@
+<div class="component">
+  <div
+    class="container-profile {{ direction }} {{ disabledActions && 'disabled' }}"
+    [class.logout]="logout"
+    [class.keepAvatar]="keepAvatar"
+  >
+    @if (userData) {
+    <div class="border-external active">
+      @if (userData.urlAvatar) {
+      <div class="border-internal" (click)="openChangeAvatarModal()">
+        <img [src]="userData.urlAvatar" alt="" srcset="" />
+      </div>
+
+      } @else {
+      <div class="border-internal without-image" (click)="openChangeAvatarModal()">
+        <img src="/svg/person.svg" alt="" srcset="" />
+      </div>
+
+      }
+    </div>
+    
+    } @else {
+      
+    }
+    <div class="container-info" (click)="openChangeAvatarModal()">
+      @if (userData) {
+      <p class="author-name">{{ userData.name }}</p>
+      <span class="author-email">{{ userData.email }}</span>
+      } @else {
+        <div class="login" (click)="goLogin()">
+          <app-svg name="login" />
+          <p class="author-name login" (click)="goLogin()">Login</p>
+        </div>
+      }
+    </div>
+  </div>
+  @if (logout) {
+  <app-svg class="logout" name="logout" (click)="goLogin()" />
+  }
+</div>
+<ng-template #changeAvatar> </ng-template>

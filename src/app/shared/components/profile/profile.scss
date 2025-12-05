@@ -1,0 +1,151 @@
+.component {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.container-profile {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+
+  &:hover {
+    .border-external {
+      border: 2.5px solid var(--purple-700);
+    }
+    .author-email {
+      color: var(--purple-700);
+    }
+  }
+
+  @media (max-width: 500px) {
+    &.logout:not(.disabled) .container-info,
+    .border-external {
+      display: none;
+    }
+
+    &.keepAvatar .border-external {
+      display: initial;
+    }
+  }
+}
+
+.container-profile.disabled {
+  .container-info,
+  .border-external {
+    cursor: initial;
+  }
+}
+
+.container-profile.left {
+  .container-info {
+    order: 2;
+  }
+  .border-external {
+    order: 1;
+  }
+}
+
+.container-logout {
+  display: flex;
+}
+
+.container-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  cursor: pointer;
+  .author-name {
+    font-size: 1rem;
+    color: var(--dark-purple-300);
+    &.login {
+      cursor: pointer;
+      transition: 0.2s;
+      text-transform: uppercase;
+      font-weight: bold;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+  .author-email {
+    font-size: 0.75rem;
+    color: var(--purple-300);
+    transition: 0.2s;
+  }
+
+  @media (max-width: 600px) {
+    .container-profile.logout .author-email {
+      display: none;
+    }
+  }
+}
+
+.login {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.border-external {
+  border-radius: 1000px;
+  border: 2px solid var(--dark-purple-600);
+  height: 3rem;
+  width: 3rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.border-external.active {
+  border: 2.5px solid var(--purple-300);
+}
+
+.border-internal {
+  border-radius: 1000px;
+}
+
+.border-internal.without-image {
+  padding: 0.65rem;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+app-svg {
+  display: inline-block;
+  cursor: pointer;
+}
+
+:host {
+  ::ng-deep {
+    .component {
+      app-svg.logout {
+        svg path {
+          fill: var(--purple-300);
+          transition: 0.25s;
+        }
+        &:hover {
+          svg path {
+            fill: var(--purple-700);
+          }
+        }
+      }
+
+      div.login {
+        svg path {
+          fill: var(--dark-purple-300);
+          transition: 0.25s;
+        }
+
+        &:hover {
+          svg path {
+            fill: white;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+
+
+section {
+  display: flex;
+  align-items: center;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+
+  p {
+    color: white;
+    font-weight: 200;
+    font-size: 1.5rem;
+  }
+
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    color: white;
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 900;
+
+    strong {
+      color: var(--purple-500);
+    }
+  }
+
+  app-button {
+    align-self: flex-start;
+  }
+}
+
+.image img {
+  width: 600px;
+  @media (max-width: 1280px) {
+    width: 500px;
+  }
+  @media (max-width: 1080px) {
+    width: 400px;
+  }
+  @media (max-width: 990px) {
+    display: none;
+  }
+}

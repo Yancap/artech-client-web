@@ -1,0 +1,80 @@
+nav {
+  background: var(--dark-purple-700);
+
+  div.container {
+    position: relative;
+  }
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+}
+
+.category-item.action {
+  width: 32px;
+  justify-content: center;
+}
+.category-item {
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  a {
+    font-family: 'Ubuntu', sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--dark-purple-300);
+
+    &.active {
+      font-weight: 600;
+      color: white;
+    }
+  }
+
+  transition: 0.2s;
+
+  &:hover {
+    background: var(--dark-purple-500);
+  }
+}
+
+.menu-dots-categories {
+  display: none;
+  background: var(--dark-purple-700);
+  border-radius: 0 0 0.5rem 0.5rem;
+  right: 0;
+  top: 100%;
+  position: absolute;
+  overflow: hidden;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+  }
+
+  li {
+    padding: 1rem 1.5rem 1rem 2rem;
+    justify-content: flex-end;
+  }
+}
+.menu-dots-categories.open {
+  display: block;
+}
+
+:host {
+  ::ng-deep {
+    .category-item {
+      svg {
+        height: 12px;
+        path {
+          fill: var(--dark-purple-300);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+main {
+  height: 100vh;
+  width: 100vw;
+  padding: 2rem;
+}
+
+main div {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 30vw;
+}
+a {
+  color: var(--purple-700);
+  text-decoration: underline;
+}
+
+app-button {
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  main {
+    place-content: inherit;
+    background-color: var(--dark-purple-900);
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 2rem;
+  }
+}
+
+:host {
+  ::ng-deep {
+    app-svg.arrow-left {
+      cursor: pointer;
+      svg {
+        height: 1.5rem;
+        width: 1.5rem;
+
+        path {
+          fill: var(--purple-500);
+        }
+      }
+      &:hover {
+        path {
+          fill: var(--purple-700);
+        }
+      }
+    }
+  }
+}
