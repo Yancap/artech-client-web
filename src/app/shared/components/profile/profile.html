@@ -18,19 +18,17 @@
 
       }
     </div>
-    
-    } @else {
-      
-    }
+
+    } @else { }
     <div class="container-info" (click)="openChangeAvatarModal()">
       @if (userData) {
       <p class="author-name">{{ userData.name }}</p>
       <span class="author-email">{{ userData.email }}</span>
       } @else {
-        <div class="login" (click)="goLogin()">
-          <app-svg name="login" />
-          <p class="author-name login" (click)="goLogin()">Login</p>
-        </div>
+      <div class="login" (click)="goLogin()">
+        <app-svg name="login" />
+        <p class="author-name login" (click)="goLogin()">Login</p>
+      </div>
       }
     </div>
   </div>

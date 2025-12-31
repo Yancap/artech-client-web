@@ -19,10 +19,32 @@ export class UserService {
     });
   }
 
-  public changePassword(dto: any) {
-    return of();
+  public changePassword(newPassword: string) {
+    const token = this.tokenService.getUserToken();
+    return this.http.put(
+      environment.apiUrl + `/user/change/password`,
+      {
+        newPassword: newPassword,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
   }
-  public changeAvatar(dto: any) {
-    return of();
+  public changeAvatar(imageBlob: string | ArrayBuffer | null) {
+    const token = this.tokenService.getUserToken();
+    return this.http.put(
+      environment.apiUrl + `/user/change/avatar`,
+      {
+        imageBlob: imageBlob,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
   }
 }

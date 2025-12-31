@@ -1,0 +1,31 @@
+<app-header />
+<app-navbar />
+<main>
+  <section class="container">
+    <div class="container-search">
+      <h4>
+        <strong>Resultados de: </strong>
+        @if (queryParams) {
+        {{ queryParams }}
+        } @else if(hashtagsParams) { 
+          <div class="container-tags">
+            @for (hashtag of hashtagsParams; track $index) {
+            
+              <span class="tag">#{{ hashtag }}</span>
+            
+            } 
+          </div>
+        }
+      </h4>
+      <app-search-engine [style]="'alternative'" />
+    </div>
+    <div class="articles">
+      @if (articles$ | async; as articles) { @if (articles !== null && articles.length !== 0 ) {
+      @for(article of articles; track $index) {
+      <app-flat-article [article]="article" />
+      } } @else {
+      <h2>SEM RESULTADO :/</h2>
+      } }
+    </div>
+  </section>
+</main>

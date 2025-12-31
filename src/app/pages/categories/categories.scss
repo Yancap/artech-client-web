@@ -1,0 +1,40 @@
+section.head-articles {
+  padding: 2rem 4rem;
+  background: var(--dark-purple-900);
+  border-radius: 0px 0px 1rem 1rem;
+}
+
+h1 {
+  text-transform: uppercase;
+
+  font-family: 'Ubuntu', sans-serif;
+  margin-bottom: 8px;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: white;
+}
+
+hr {
+  border: 2px solid var(--purple-500);
+  width: 70px;
+  margin-bottom: 1rem;
+}
+
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+
+section.articles {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: 3rem;
+  column-gap: 2rem;
+}

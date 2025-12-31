@@ -1,0 +1,15 @@
+<div class="container-comment">
+  <div class="content">
+    <header>
+      <span>{{ comment.userName }} - {{ comment.createdAt | date : 'longDate' : 'pt-BR' }}</span>
+      @if (user && user.email === comment.userEmail) {
+        <app-svg name="trash" (click)="handleClick()" />
+      }
+    </header>
+    <article>
+      <p>
+        {{ comment.text }}
+      </p>
+    </article>
+  </div>
+</div>

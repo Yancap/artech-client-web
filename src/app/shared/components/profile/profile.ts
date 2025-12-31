@@ -26,23 +26,15 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.userData) {
-      if (this.authService.userAccess['_buffer'].length === 0) {
-        this.authService
-          .getAccess()
-          .pipe(
-            take(1),
-            catchError(() => {
-              return of(null);
-            })
-          )
-          .subscribe();
-      }
-      this.authService.userAccess.subscribe((userData) => {
-        if (userData) {
-          this.userData = userData;
-          this.logout = true;
-        }
-      });
+      
+      this.authService
+        .getAccess()
+        .subscribe((userData) => {
+          if (userData) {
+            this.userData = userData;
+            this.logout = true;
+          }
+        });
     }
   }
 
@@ -56,5 +48,4 @@ export class ProfileComponent implements OnInit {
   goLogin() {
     this.router.navigateByUrl('/login');
   }
-
 }

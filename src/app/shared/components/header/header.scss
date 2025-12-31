@@ -7,9 +7,11 @@ header {
     display: flex;
     justify-content: space-between;
     height: 4rem;
+    gap: 3rem;
     img {
       height: auto;
       width: 12rem;
+      cursor: pointer;
     }
   }
 
@@ -33,6 +35,7 @@ header {
   }
 
   @media (max-width: 900px) {
+    padding: 1.5rem 0;
     > div img {
       display: none;
     }

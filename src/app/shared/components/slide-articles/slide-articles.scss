@@ -1,0 +1,110 @@
+
+.container-articles {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  overflow: hidden;
+
+  .title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    h2 {
+      text-transform: uppercase;
+      font-size: 2rem;
+    }
+  }
+
+  .articles {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 1rem 0;
+
+    &::-webkit-scrollbar-track {
+      height: 1px;
+      border-radius: 1000px;
+      background-color: var(--dark-purple-750);
+    }
+    &::-webkit-scrollbar {
+      height: 5px;
+      border-radius: 1000px;
+      background: var(--dark-purple-750);
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--purple-500);
+      border-radius: 1000px;
+      border: 1px solid var(--dark-purple-750);
+    }
+  }
+
+  .slides {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem 1rem 0;
+
+    .slide {
+      background: var(--dark-purple-900);
+      outline: none;
+      border: 1px solid var(--purple-500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 2.5rem;
+      width: 2.5rem;
+      border-radius: 1000px !important;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .slide.left {
+      app-svg {
+        transform: translateX(-2px);
+      }
+    }
+
+    .slide.right {
+      app-svg {
+        transform: translateX(2px);
+      }
+    }
+  }
+
+
+}
+
+
+
+:host {
+  ::ng-deep {
+    .container-articles .title {
+      color: var(--dark-purple-200);
+      &.front-end h2 {
+        color: #9F9EF7;
+        
+      }
+      &.back-end h2 {
+        color: #F5746C;
+      }
+      &.mobile h2 {
+        color: #E4F53B;
+      }
+      &.design h2 {
+        color: #B35FF5;
+      }
+      &.inteligencia-artificial h2 {
+        color: #47A0F5;
+      }
+      &.data-science h2 {
+        color: #62F53B;
+      }
+      &.devops h2 {
+        color: #f19747;
+      }
+    }
+  }
+}

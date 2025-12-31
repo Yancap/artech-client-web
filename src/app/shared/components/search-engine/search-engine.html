@@ -1,0 +1,19 @@
+<div class="{{ style }}">
+  <input
+    type="text"
+    placeholder="Pesquisar artigos"
+    [value]="value"
+    #inputRef
+    (input)="onInput($event)"
+  />
+  <app-svg class="search" name="search" (click)="searchArticle()" />
+  <div class="container-tags">
+    @for (tag of tags; track $index) {
+
+    <span class="tag">
+      #{{ tag }}
+      <app-svg name="plus" (click)="removeValue(tag)" />
+    </span>
+    }
+  </div>
+</div>

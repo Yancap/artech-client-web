@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../shared/services/auth/auth.service';
 import { TokenService } from '../../shared/services/token/token.service';
 import { ModalMessageService } from '../../shared/services/modal-message/modal-message.service';
@@ -20,18 +20,24 @@ export class Login implements OnInit {
   private _password = '';
   @ViewChild('containerModals', { read: ViewContainerRef, static: true })
   containerModalsRef!: ViewContainerRef;
+  private goTo: string = '/';
 
   constructor(
     private authService: AuthService,
     private tokenService: TokenService,
-
+    private activatedRoute: ActivatedRoute,
     private modalMessageService: ModalMessageService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe((data) => {
+      if ('goto' in data) {
+        this.goTo = data['goto'];
+      }
+    });
     this.tokenService.resetUserToken();
-    this.modalMessageService.modalStack.subscribe((modalData) => {
+    this.modalMessageService.modalStack$.subscribe((modalData) => {
       const componentRef = this.containerModalsRef.createComponent(ModalMessageComponent);
       componentRef.instance.details = modalData.details;
       componentRef.instance.message = modalData.message;
@@ -48,7 +54,6 @@ export class Login implements OnInit {
   }
 
   public password(value: any) {
-    console.log(value);
     this._password = value;
   }
 
@@ -64,14 +69,14 @@ export class Login implements OnInit {
         first(),
         concatMap(() => {
           const token = this.tokenService.getUserToken();
-          if (token) return this.router.navigateByUrl('/');
+          if (token) return this.router.navigateByUrl(this.goTo);
           return of();
         })
       )
       .subscribe();
   }
 
-  public goHome() {
-    this.router.navigateByUrl('/');
+  public goToHome() {
+    this.router.navigateByUrl('');
   }
 }

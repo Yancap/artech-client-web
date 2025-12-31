@@ -9,6 +9,7 @@
 
 :root {
   --dark-purple-900: #18191f;
+  --dark-purple-850: #1b1c25;
   --dark-purple-800: #1e2027;
   --dark-purple-750: #2D3039;
   --dark-purple-700: #404451;
@@ -36,6 +37,7 @@
   --blue-500: #0d77dd;
   --blue-300: #5caffd;
 
+  --cornflower-blue-100: #a8bcf7;
   --cornflower-blue-300: #8198db;
 
   --green-700: #1cb358;
@@ -47,6 +49,9 @@ body {
   background-color: var(--dark-purple-800);
 }
 
+code {
+  font-family: 'M PLUS 1 Code', monospace;
+}
 p,
 label,
 input,
@@ -89,51 +94,12 @@ button {
   }
 }
 
-.table-artech {
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: collapse;
-  thead {
-    color: var(--dark-purple-500);
-    font-size: 0.825rem;
-    font-weight: bold;
-    font-family: "Poppins", sans-serif;
-    text-align: left;
-    th.action {
-      width: 8rem;
-    }
-    th {
-      padding: 1rem .5rem;
-    }
-  }
-  tbody {
-    color: var(--dark-purple-100);
-    font-size: 1rem;
-    font-family: "Ubuntu", sans-serif;
-    text-align: left;
-    td {
-      padding: 2rem 2rem 2rem .5rem;
-    }
-    td.action {
-      padding: 2rem 0.5rem;
-    }
-  }
-
-  td,
-  th {
-    border-bottom: 3px solid var(--dark-purple-800);
-  }
-
-  @media (max-width: 560px) {
-    width: max-content;
-  }
-}
 
 .container {
   width: 100%;
-  max-width: calc(100vw - 1.5rem);
+  max-width: calc(100vw);
   padding: 0 0.75rem;
-  margin: 0;
+  margin: 0 auto;
   @media (min-width: 764px) {
     margin: 0 auto;
     max-width: 660px;

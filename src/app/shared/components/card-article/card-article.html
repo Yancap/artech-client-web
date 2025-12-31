@@ -1,0 +1,14 @@
+<div class="card" (click)="goToArticle(article.slug)">
+  <header>
+    <span [class]="article.category.toLowerCase().replaceAll(' ', '-')">{{ article.category }}</span>
+  </header>
+  <div class="body">
+    <h6>{{ article.title }}</h6>
+    <div class="image">
+      <img src="{{ article.imageUrl }}" alt="" />
+    </div>
+    <footer>
+      <span> {{ article.createdAt | date : 'longDate' }} </span>
+    </footer>
+  </div>
+</div>

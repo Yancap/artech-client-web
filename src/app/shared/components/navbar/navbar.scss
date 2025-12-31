@@ -13,32 +13,39 @@ ul {
 }
 
 .category-item.action {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
   width: 32px;
   justify-content: center;
 }
-.category-item {
+
+a.category-item {
   padding: 1rem 0.5rem;
   cursor: pointer;
   display: flex;
   align-items: center;
-  a {
-    font-family: 'Ubuntu', sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-    color: var(--dark-purple-300);
 
-    &.active {
-      font-weight: 600;
-      color: white;
-    }
+  font-family: 'Ubuntu', sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--dark-purple-300);
+
+  &.active {
+    font-weight: 600;
+    color: white;
   }
 
   transition: 0.2s;
 
   &:hover {
     background: var(--dark-purple-500);
+  }
+
+  @media (max-width: 600px) {
+    padding: 1.5rem 1rem;
   }
 }
 
@@ -57,13 +64,28 @@ ul {
     padding-bottom: 1rem;
   }
 
-  li {
+  a {
     padding: 1rem 1.5rem 1rem 2rem;
     justify-content: flex-end;
+    @media (max-width: 600px) {
+      padding: 1.5rem 2rem 1.5rem 2.5rem;
+    }
   }
 }
 .menu-dots-categories.open {
   display: block;
+  a {
+    animation: openMenu 0.2s forwards;
+  }
+}
+
+@keyframes openMenu {
+  from {
+    padding: 0rem 0rem 0rem 0rem;
+  }
+  to {
+    padding: 1rem 1.5rem 1rem 2rem;
+  }
 }
 
 :host {

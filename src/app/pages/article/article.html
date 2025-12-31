@@ -1,0 +1,52 @@
+<app-header />
+<app-navbar />
+<main>
+  @if ( article$ | async; as article) {
+  <section class="container article">
+    <app-breadcrumb [links]="linksBreadcrumb" />
+
+    <div class="container-tags">
+      @for (hashtag of article.tags; track $index) {
+      <span class="tag">#{{ hashtag }}</span>
+      }
+    </div>
+    <h1 class="font-main">{{ article.title }}</h1>
+    <h3 class="font-main">{{ article.subtitle }}</h3>
+    <div class="author">
+      <app-author [userData]="article.author" [createdAt]="article.createdAt" />
+    </div>
+    <div class="image">
+      <img src="{{ article.imageUrl }}" alt="" />
+    </div>
+    <div class="content" [innerHTML]="article.text | safeHtml"></div>
+
+    <div class="credits">
+      <h3>Referências</h3>
+      <ul>
+        @for (credit of article.credits; track $index) {
+        <li>
+          <a [href]="credit.link" target="_blank">{{ credit.name }}</a>
+        </li>
+        }
+      </ul>
+    </div>
+  </section>
+  <section class="container comments">
+    <h2>Comentários</h2>
+    <form>
+      <textarea
+        placeholder="Escreva seu comentário"
+        rows="5"
+        #textAreaRef
+        [value]="textareaContent"
+      ></textarea>
+      <app-button [size]="'xs'" (click)="createComment($event)">Enviar</app-button>
+    </form>
+    <div class="container-comments">
+      @for (comment of article.comments; track $index) {
+      <app-container-comment [comment]="comment" [user]="userData" />
+      }
+    </div>
+  </section>
+  }
+</main>

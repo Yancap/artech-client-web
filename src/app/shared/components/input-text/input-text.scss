@@ -86,7 +86,7 @@ div.normal {
 
 div.alternative {
   label {
-    font-style: "Poppins", sans-serif;
+    font-style: 'Poppins', sans-serif;
     font-weight: 800;
     color: var(--dark-purple-400);
   }
@@ -154,7 +154,7 @@ div.alternative {
 
 div.type-file {
   /* Esconde o input */
-  input[type="file"] {
+  input[type='file'] {
     display: none;
   }
   &.alternative {
@@ -170,7 +170,7 @@ div.type-file {
       align-items: center;
     }
     span {
-      font-style: "Poppins", sans-serif;
+      font-style: 'Poppins', sans-serif;
       font-weight: 800;
       color: var(--dark-purple-400);
     }

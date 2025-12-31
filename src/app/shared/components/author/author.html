@@ -1,0 +1,24 @@
+<div class="component">
+  <div class="container-profile">
+    @if (userData) {
+    <div class="border-external">
+      @if (userData.urlAvatar) {
+      <div class="border-internal">
+        <img [src]="userData.urlAvatar" alt="" srcset="" />
+      </div>
+
+      } @else {
+      <div class="border-internal without-image">
+        <img src="/svg/person.svg" alt="" srcset="" />
+      </div>
+
+      }
+    </div>
+
+    <div class="container-info">
+      <p class="author-name"><strong>{{ userData.name }}</strong> </p>
+      <span class="created-at">{{ createdAt | date : 'longDate'  }}</span>
+    </div>
+    }
+  </div>
+</div>

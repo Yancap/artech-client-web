@@ -2,10 +2,12 @@
   <div class="container">
     <ul>
       @for (category of categoriesToNavbar; track $index) {
-      <li class="category-item">
-        <a routerLink="/category/{{ category }}">{{ category }}</a>
-      </li>
-      }
+
+      <a class="category-item" routerLink="/articles/category/{{ category }}" routerLinkActive="active">
+        {{ category }}
+      </a>
+
+      } @if ( categoriesToMenu.length > 0 ) {
       <li class="category-item action" (click)="toggleMenu()">
         @if (isMenuOpened) {
 
@@ -15,13 +17,14 @@
 
         }
       </li>
+      }
     </ul>
     <div class="menu-dots-categories" [class.open]="isMenuOpened">
       <ul>
         @for (category of categoriesToMenu; track $index) {
-        <li class="category-item">
-          <a routerLink="/category/{{ category }}">{{ category }}</a>
-        </li>
+        <a class="category-item" routerLink="/articles/category/{{ category }}" routerLinkActive="active">
+          {{ category }}
+        </a>
         }
       </ul>
     </div>

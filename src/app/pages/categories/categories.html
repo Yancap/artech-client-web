@@ -1,0 +1,15 @@
+<app-header />
+<app-navbar />
+<main>
+  <section class="container head-articles">
+    <app-breadcrumb [links]="linksBreadcrumb" />
+    <h1>{{ category }}</h1>
+    <hr>
+  </section>
+  <section class="container articles">
+    @for (article of (articles$ | async); track $index) {
+      <app-card-article [article]="article"/>
+    }
+    
+  </section>
+</main>

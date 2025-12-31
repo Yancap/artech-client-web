@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SvgComponent } from '../svg/svg';
-import { Subject } from 'rxjs';
 import { ButtonComponent } from "../button/button";
 
 @Component({

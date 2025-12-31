@@ -9,29 +9,19 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { CategoryService } from '../../services/category/category.service';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { SvgComponent } from '../svg/svg';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, SvgComponent],
+  imports: [RouterLink, SvgComponent, RouterLinkActive],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Navbar implements OnInit {
-  public categories: string[] = [
-    'inteligencia artificial',
-    'computação quantica',
-    'front-end',
-    'back-end',
-    'data science',
-    'cloud',
-    'mobile',
-    'design',
-    'devops',
-  ];
+export class NavbarComponent implements OnInit {
+  public categories: string[] = [];
   public categoriesToNavbar: string[] = [];
   public categoriesToMenu: string[] = [];
   public isMenuOpened = false;
@@ -44,14 +34,15 @@ export class Navbar implements OnInit {
 
   ngOnInit(): void {
     if (this.isBrowser()) {
-      this.handleScreenChange(window);
+      this.categoryService.getAll().subscribe(({ categories }) => {
+        this.categories = categories;
+
+        this.handleScreenChange(window);
+      });
       window.addEventListener('resize', (event) => {
         if (event.currentTarget instanceof Window) this.handleScreenChange(event.currentTarget);
       });
     }
-    // this.categoryService.getAll().subscribe(({ categories }) => {
-    //   this.categories = categories;
-    // });
   }
 
   public handleScreenChange(window: Window) {
@@ -94,7 +85,6 @@ export class Navbar implements OnInit {
     return isPlatformBrowser(this.platformId);
   }
   public toggleMenu() {
-    console.log('click');
 
     this.isMenuOpened = !this.isMenuOpened;
     this.cd.markForCheck();

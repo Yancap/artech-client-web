@@ -1,2 +1,22 @@
 <app-header />
 <app-navbar />
+<main>
+  <section class="container head-articles">
+    <app-breadcrumb [links]="linksBreadcrumb" />
+    <h1 >Artigos recentes</h1>
+    <hr />
+    @if (articleForPage$ | async; as articlePage) { @if (articlePage && 'news' in articlePage) {
+    <app-slide-articles [articlePage]="articlePage['news']" />
+    } }
+  </section>
+  <section class="container articles">
+    <h1 class="category-title">Categorias</h1>
+    <hr />
+    <div class="slide-article">
+      @if (articleForPage$ | async; as articlePage) { @for (category of categories; track $index) {
+      @if (articlePage && category in articlePage) {
+      <app-slide-articles [title]="true" [articlePage]="articlePage[category]" />
+      } } }
+    </div>
+  </section>
+</main>

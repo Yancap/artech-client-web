@@ -1,0 +1,29 @@
+<div class="container-articles">
+  @if (title) {
+  <div class="title {{ articlePage.category.toLowerCase().replaceAll(' ', '-') }}">
+    <!-- <app-svg [name]="articlePage.category" /> -->
+    <h2>{{ articlePage.category }}</h2>
+  </div>
+  }
+  <div class="slides">
+    <button
+      class="slide left"
+      (pointerdown)="slideLeft(containerArtRef)"
+      (pointerup)="cleanTimestamp()"
+    >
+      <app-svg name="slide-left" />
+    </button>
+    <button
+      class="slide right"
+      (pointerdown)="slideRight(containerArtRef)"
+      (pointerup)="cleanTimestamp()"
+    >
+      <app-svg name="slide-right" />
+    </button>
+  </div>
+  <div class="articles" #containerArtRef>
+    @if (articlePage) { @for (article of articlePage.articles; track $index) {
+    <app-card-article [article]="article" />
+    } }
+  </div>
+</div>

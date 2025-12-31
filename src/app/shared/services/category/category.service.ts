@@ -8,19 +8,16 @@ import { ReplaySubject, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class CategoryService {
-  public categories: ReplaySubject<ICategoryResponse> = new ReplaySubject(1);
+  public categories$: ReplaySubject<ICategoryResponse> = new ReplaySubject(1);
 
-  constructor(private http: HttpClient, private tokenService: TokenService) {}
+  constructor(private http: HttpClient) {}
 
   public getAll() {
-    if (this.categories['_buffer'].length === 0) {
-      const token = this.tokenService.getUserToken();
+    if (this.categories$['_buffer'].length === 0) {
       return this.http
-        .get<ICategoryResponse>(environment.apiUrl + `/category/`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        .pipe(tap((categories) => this.categories.next(categories)));
+        .get<ICategoryResponse>(environment.apiUrl + `/category/`)
+        .pipe(tap((categories) => this.categories$.next(categories)));
     }
-    return this.categories;
+    return this.categories$;
   }
 }

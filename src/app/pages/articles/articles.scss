@@ -1,0 +1,136 @@
+section.head-articles {
+  padding: 4rem;
+  background: var(--dark-purple-900);
+  border-radius: 0px 0px 1rem 1rem;
+}
+
+section.articles {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+h1 {
+  text-transform: uppercase;
+  font-family: 'Ubuntu', sans-serif;
+  margin-bottom: 8px;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: white;
+}
+hr {
+  border: 2px solid var(--purple-500);
+  width: 70px;
+  margin-bottom: 2rem;
+}
+
+h1.category-title {
+  font-size: 2rem;
+  ~ hr {
+    margin-bottom: 4rem;
+  }
+}
+
+.container-articles {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  overflow: hidden;
+
+  .articles {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    overflow-x: scroll;
+    padding: 1rem 0;
+
+    &::-webkit-scrollbar-track {
+      height: 1px;
+      border-radius: 1000px;
+      background-color: var(--dark-purple-750);
+    }
+    &::-webkit-scrollbar {
+      height: 4px;
+      border-radius: 1000px;
+      background: var(--dark-purple-750);
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--purple-500);
+      border-radius: 1000px;
+      border: 1px solid var(--dark-purple-750);
+    }
+  }
+
+  .slides {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem 1rem 0;
+
+    .slide {
+      background: var(--dark-purple-900);
+      outline: none;
+      border: 1px solid var(--purple-500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 2.5rem;
+      width: 2.5rem;
+      border-radius: 1000px !important;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .slide.left {
+      app-svg {
+        transform: translateX(-2px);
+      }
+    }
+
+    .slide.right {
+      app-svg {
+        transform: translateX(2px);
+      }
+    }
+  }
+}
+
+.slide-article {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h1.category-title {
+    font-size: 1.75rem;
+  }
+}
+
+:host {
+  ::ng-deep {
+    .slide app-svg {
+      cursor: pointer;
+      svg {
+        height: 1.5rem;
+        width: 1.5rem;
+
+        path {
+          fill: var(--purple-500);
+        }
+      }
+    }
+
+    .slide:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 0px 8px #04007aa5;
+    }
+    .slide:active {
+      transform: scale(1);
+      box-shadow: 0px 0px 8px var(--purple-500);
+    }
+  }
+}

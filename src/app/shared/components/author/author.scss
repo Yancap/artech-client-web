@@ -1,0 +1,63 @@
+.component {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.container-profile {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+
+ 
+}
+
+
+
+
+.container-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  .author-name {
+    font-size: 1rem;
+    color: var(--dark-purple-100);
+    
+  }
+  .created-at {
+    font-size: 0.75rem;
+    color: var(--dark-purple-300);
+  }
+
+  
+}
+
+.border-external {
+  border-radius: 1000px;
+  border: 2.5px solid var(--dark-purple-600);
+  height: 3rem;
+  width: 3rem;
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+
+.border-internal {
+  border-radius: 1000px;
+}
+
+.border-internal.without-image {
+  padding: 0.75rem;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+app-svg {
+  display: inline-block;
+  cursor: pointer;
+}
+

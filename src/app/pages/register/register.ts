@@ -34,7 +34,7 @@ export class Register implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.modalMessageService.modalStack.subscribe((modalData) => {
+    this.modalMessageService.modalStack$.subscribe((modalData) => {
       const componentRef = this.containerModalsRef.createComponent(ModalMessageComponent);
       componentRef.instance.details = modalData.details;
       componentRef.instance.message = modalData.message;
@@ -53,7 +53,7 @@ export class Register implements OnInit {
   public register(event: Event) {
     event.preventDefault();
     this.userService.registerUser(this.formRegister).subscribe(() => {
-      this.modalMessageService.modalStack.next({
+      this.modalMessageService.modalStack$.next({
         message: `Registro realizado com sucesso.`,
         details: '',
         scope: 'top',
@@ -64,5 +64,10 @@ export class Register implements OnInit {
         },
       });
     });
+  }
+
+  public goToLogin() {
+
+    this.router.navigateByUrl('/login');
   }
 }

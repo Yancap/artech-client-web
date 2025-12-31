@@ -1,0 +1,124 @@
+.container-tags {
+  padding: 1.5rem 0;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  position: absolute;
+  z-index: 10;
+
+  .tag {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    background: var(--dark-purple-750);
+    border-radius: 0.25rem;
+    padding: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--purple-500);
+
+    app-svg {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      transform: rotate(45deg);
+      transition: 0.2s;
+      cursor: pointer;
+      &:hover {
+        transform: rotate(45deg) scale(1.1);
+      }
+    }
+  }
+}
+
+div {
+  display: flex;
+  border-radius: 1000px;
+  position: relative;
+
+  align-items: center;
+  //overflow: hidden;
+  input {
+    outline: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    background: none;
+    width: 100%;
+    color: var(--dark-purple-100);
+
+    &::placeholder {
+      color: var(--dark-purple-500);
+    }
+  }
+
+  app-svg.search {
+    border-radius: 1000px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: 0.4s;
+    &:hover {
+      filter: contrast(1.05);
+    }
+  }
+}
+
+div.normal {
+  background: var(--dark-purple-800);
+
+  .container-tags {
+    top: 1rem;
+    left: 0.5rem;
+  }
+
+  app-svg.search {
+    background: var(--dark-purple-800);
+  }
+}
+
+div.alternative {
+  background: var(--dark-purple-900);
+
+  .container-tags {
+    top: 2rem;
+    left: 1rem;
+
+    .tag {
+      font-size: 12px;
+    }
+  }
+
+  input {
+    padding: 1rem 1.25rem;
+  }
+  app-svg.search {
+    padding: 1rem 1.25rem;
+
+    background: var(--dark-purple-900);
+  }
+}
+
+:host {
+  ::ng-deep {
+    span.placeholder {
+      position: absolute;
+      font-size: 14px;
+      color: var(--dark-purple-400);
+      user-select: none;
+      -webkit-user-select: none; /* Para Chrome, Safari, Opera */
+      -moz-user-select: none; /* Para Firefox */
+      -ms-user-select: none; /* Para Internet Explorer/Edge */
+    }
+    .container-tags .tag {
+      svg {
+        height: 10px;
+        width: 10px;
+      }
+      path {
+        fill: var(--dark-purple-700);
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+}

@@ -1,0 +1,19 @@
+<div class="card" (click)="goToArticle(article.slug)">
+  <div class="image">
+    <img [src]="article.imageUrl" alt="" />
+  </div>
+  <div class="content">
+    <h2>
+      {{ article.title }}
+    </h2>
+    <div class="info">
+      <p>
+        por <strong>{{ article.authorName }}</strong>
+      </p>
+      <span>
+        {{ article.createdAt.substring(0, 10) | date : 'longDate' }}
+      </span>
+    </div>
+    <p class="text">{{ textArticle }}</p>
+  </div>
+</div>

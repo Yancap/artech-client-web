@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { ButtonComponent } from '../button/button';
 import { SvgComponent } from '../svg/svg';
 import { ModalMessageService } from '../../services/modal-message/modal-message.service';
@@ -19,7 +19,8 @@ export class ChangeUserDataComponent implements OnInit {
   constructor(
     private userService: UserService,
     private authService: AuthService,
-    private modalMessageService: ModalMessageService
+    private modalMessageService: ModalMessageService,
+    private cd: ChangeDetectorRef
   ) {}
 
   public changeType: 'avatar' | 'password' | null = null;
@@ -32,7 +33,7 @@ export class ChangeUserDataComponent implements OnInit {
   imageBlob!: string | ArrayBuffer | null;
 
   ngOnInit(): void {
-    this.authService.userAccess.subscribe((userData) => {
+    this.authService.userAccess$.subscribe((userData) => {
       this.imageBlob = userData.urlAvatar;
     });
   }
@@ -41,6 +42,7 @@ export class ChangeUserDataComponent implements OnInit {
     let reader = new FileReader();
     reader.onload = () => {
       this.imageBlob = reader.result;
+      this.cd.detectChanges();
     };
     if (event.target?.files) {
       try {
@@ -57,7 +59,7 @@ export class ChangeUserDataComponent implements OnInit {
       .changeAvatar(this.imageBlob)
       .pipe(concatMap(() => this.authService.getAccess()))
       .subscribe(() => {
-        this.modalMessageService.modalStack.next({
+        this.modalMessageService.modalStack$.next({
           message: 'Avatar alterado com sucesso.',
           details: '',
           scope: 'top',
@@ -77,7 +79,7 @@ export class ChangeUserDataComponent implements OnInit {
         .changePassword(this._password)
         .pipe(concatMap(() => this.authService.getAccess()))
         .subscribe(() => {
-          this.modalMessageService.modalStack.next({
+          this.modalMessageService.modalStack$.next({
             message: 'Senha alterada com sucesso.',
             details: '',
             scope: 'top',

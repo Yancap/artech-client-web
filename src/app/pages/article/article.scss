@@ -1,0 +1,247 @@
+section {
+  padding: 4rem;
+  background: var(--dark-purple-900);
+  margin-bottom: 4rem;
+
+  @media (max-width: 768px) {
+    padding: 4rem 0.75rem;
+  }
+}
+
+section.article {
+  border-radius: 0 0 1rem 1rem;
+}
+
+h1 {
+  color: white;
+  font-weight: 900;
+  font-size: 3rem;
+  padding: 0 0 1.5rem;
+}
+
+h3 {
+  color: var(--dark-purple-200);
+  margin-bottom: 2rem;
+}
+
+.container-tags {
+  padding: 2rem 0 1rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  .tag {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    background: var(--dark-purple-800);
+    border-radius: 0.25rem;
+    padding: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #5452b7;
+    text-transform: lowercase;
+
+    font-family: monospace;
+  }
+}
+
+div.author {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--dark-purple-800);
+}
+
+div.image {
+  margin: 4rem 0;
+  background: var(--dark-purple-900);
+  width: 100%;
+
+  img {
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+div.content {
+  color: var(--dark-purple-100);
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1rem;
+  border-bottom: 1px solid var(--dark-purple-800);
+
+  padding: 0 4rem 4rem;
+
+  @media (max-width: 500px) {
+    padding: 0 1rem 4rem;
+  }
+}
+
+:host {
+  ::ng-deep {
+    div.content {
+      * {
+        font-family: 'Ubuntu', sans-serif;
+      }
+      div {
+        padding: 2px 0;
+      }
+
+      a {
+        color: var(--purple-500);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: var(--cornflower-blue-100);
+        font-weight: bold;
+        margin-bottom: 2px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      h4 {
+        font-size: 1.25rem;
+      }
+
+      h5 {
+        font-size: 1.15rem;
+      }
+
+      h6 {
+        font-size: 1rem;
+      }
+
+      ul,
+      ol {
+        list-style-position: inside;
+        li {
+          padding: 2px 0 4px;
+        }
+
+        ul,
+        ol {
+          margin-left: 1rem;
+        }
+      }
+
+      code {
+        display: inline-block;
+        padding: 2px;
+
+        font-size: 16px;
+        color: var(--cornflower-blue-300);
+        background: var(--dark-purple-800);
+        border-radius: 4px;
+        font-family: 'M PLUS 1 Code', monospace;
+
+        * {
+          font-family: 'M PLUS 1 Code', monospace;
+        }
+      }
+    }
+  }
+}
+
+div.credits {
+  padding: 3rem 0 0;
+
+  h3 {
+    color: white;
+    font-weight: 900;
+    font-size: 2rem;
+  }
+
+  ul {
+    list-style-position: inside;
+    color: var(--purple-300);
+  }
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    color: var(--purple-300);
+    font-weight: 500;
+  }
+}
+
+section.comments {
+  border-radius: 1rem;
+  h2 {
+    color: white;
+    font-weight: 900;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  form {
+    display: flex;
+
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  textarea {
+    padding: 0.75rem 0.875rem;
+    font-size: 1rem;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: var(--dark-purple-800);
+    border: none;
+    border-radius: 0.25rem;
+    outline: none;
+    color: var(--dark-purple-100);
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 224px;
+    min-height: 114px;
+
+    &::-webkit-scrollbar-track {
+      height: 1px;
+      border-radius: 1000px;
+      background-color: var(--dark-purple-750);
+    }
+    &::-webkit-scrollbar {
+      width: 6px;
+      border-radius: 1000px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--purple-500);
+      border-radius: 1000px;
+      border: 1px solid var(--dark-purple-750);
+    }
+
+    &::-webkit-scrollbar-corner {
+      background: var(--dark-purple-900);
+    }
+  }
+
+  textarea::placeholder {
+    color: var(--dark-purple-400);
+  }
+  textarea:focus {
+    outline: 1.5px solid var(--purple-700);
+    border: 0.25px solid var(--purple-500);
+    color: var(--dark-purple-100);
+  }
+
+  app-button {
+    align-self: flex-start;
+  }
+
+  .container-comments {
+    margin: 3rem 0 0;
+  }
+}
