@@ -4,11 +4,12 @@ import { Component, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/
 import { Router } from '@angular/router';
 import { SvgComponent } from '../svg/svg';
 import { ChangeUserDataComponent } from '../change-user-data/change-user-data';
+import { SrcImagePipe } from '../../pipes/src-image/src-image.pipe';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [SvgComponent],
+  imports: [SvgComponent, SrcImagePipe],
   templateUrl: './profile.html',
   styleUrl: './profile.scss',
 })

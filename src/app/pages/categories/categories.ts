@@ -7,6 +7,7 @@ import { concatMap, ReplaySubject, take } from 'rxjs';
 import { ArticleService } from '../../shared/services/article/article.service';
 import { AsyncPipe } from '@angular/common';
 import { BreadcrumbComponent } from '../../shared/components/breadcrumb/breadcrumb';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-categories',
@@ -27,9 +28,14 @@ export class Categories implements OnInit {
     },
   ];
 
-  constructor(private route: ActivatedRoute, private articleService: ArticleService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private titleService: Title,
+    private articleService: ArticleService
+  ) {}
 
   ngOnInit(): void {
+    this.titleService.setTitle('Artech - Artigos de tecnologia');
     this.route.params
       .pipe(
         concatMap((params) => {

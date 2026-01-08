@@ -1,6 +1,6 @@
 <div class="card" (click)="goToArticle(article.slug)">
   <div class="image">
-    <img [src]="article.imageUrl" alt="" />
+    <img [src]="article.imageUrl | srcImage" alt="" />
   </div>
   <div class="content">
     <h2>

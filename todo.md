@@ -34,10 +34,16 @@ Estudar mais sobre o angular ssr e ssg
   [x] Testar novo ajuste com um novo artigo
 [x] Adicionar funcionalidade de desativar artigos
   [x] Modificar o container de buttons do handle article CMS para o novo design do fgima
-[] Adicionar mais artigos nas categorias
-[] Adicionar mais conteudos aos artigos 
+[x] Adicionar mais artigos nas categorias
+[x] Adicionar mais conteudos aos artigos 
 
 [x] Adicionar um componente de hashtag na pagina do article
 
 [x] Funcionalidade de salvar o artigo como rascunho caso saia daa página via dialog
+[x] Iniciar os serviços no Kubernetes com o Ingress
+[x] Ver o erro do banco de dados
+
 [] Criar um storage no kubernetes com persistencia para armazenar as imagens e declarar esse path via variavel de ambiente
+  [x] Ajustar os testes unitários das APIs para contemplar as novas mudanças na API de storage
+  [x] Ajustar as URLs das imagens no banco de dados para contemplar a nova forma de URL do storage
+

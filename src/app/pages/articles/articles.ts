@@ -7,6 +7,7 @@ import { concatMap, ReplaySubject, tap } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { SlideArticles } from '../../shared/components/slide-articles/slide-articles';
 import { BreadcrumbComponent } from '../../shared/components/breadcrumb/breadcrumb';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-articles',
@@ -15,7 +16,6 @@ import { BreadcrumbComponent } from '../../shared/components/breadcrumb/breadcru
   styleUrl: './articles.scss',
 })
 export class Articles implements OnInit {
-
   public articleForPage$: ReplaySubject<{ [key: string]: ArticleForPage }> = new ReplaySubject(1);
 
   public categories: string[] = [];
@@ -29,9 +29,14 @@ export class Articles implements OnInit {
     },
   ];
 
-  constructor(private articleService: ArticleService, private categoryService: CategoryService) {}
+  constructor(
+    private articleService: ArticleService,
+    private titleService: Title,
+    private categoryService: CategoryService
+  ) {}
 
   ngOnInit(): void {
+    this.titleService.setTitle('Artech - Artigos de tecnologia');
     this.categoryService
       .getAll()
       .pipe(

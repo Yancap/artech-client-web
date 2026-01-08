@@ -11,10 +11,12 @@ export const routes: Routes = [
   {
     component: Login,
     path: 'login',
+    data: { title: 'Login' }
   },
   {
     component: Register,
     path: 'register',
+    data: { title: '' }
   },
   {
     component: Home,

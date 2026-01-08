@@ -13,6 +13,8 @@ import { InputTextComponent } from '../../shared/components/input-text/input-tex
 import { ContainerCommentComponent } from '../../shared/components/container-comment/container-comment';
 import { AuthService } from '../../shared/services/auth/auth.service';
 import { CommentsService } from '../../shared/services/comments/comments.service';
+import { SrcImagePipe } from '../../shared/pipes/src-image/src-image.pipe';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-article',
@@ -25,6 +27,7 @@ import { CommentsService } from '../../shared/services/comments/comments.service
     SafeHtmlPipe,
     ButtonComponent,
     ContainerCommentComponent,
+    SrcImagePipe
   ],
   templateUrl: './article.html',
   styleUrl: './article.scss',
@@ -52,6 +55,7 @@ export class Article implements OnInit {
     private articleService: ArticleService,
     private authService: AuthService,
     private commentsService: CommentsService,
+    private titleService: Title,
     private cd: ChangeDetectorRef
   ) {}
 
@@ -77,6 +81,8 @@ export class Article implements OnInit {
         })
       )
       .subscribe(({ article }) => {
+        
+        this.titleService.setTitle(article.title);
         this.linksBreadcrumb.push({
           text: article.category,
           url: '/articles/category/' + article.category,

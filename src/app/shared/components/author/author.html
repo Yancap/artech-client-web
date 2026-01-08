@@ -4,7 +4,7 @@
     <div class="border-external">
       @if (userData.urlAvatar) {
       <div class="border-internal">
-        <img [src]="userData.urlAvatar" alt="" srcset="" />
+        <img [src]="userData.urlAvatar | srcImage" alt="" srcset="" />
       </div>
 
       } @else {

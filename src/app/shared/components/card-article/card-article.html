@@ -5,7 +5,7 @@
   <div class="body">
     <h6>{{ article.title }}</h6>
     <div class="image">
-      <img src="{{ article.imageUrl }}" alt="" />
+      <img src="{{ article.imageUrl | srcImage  }}" alt="" />
     </div>
     <footer>
       <span> {{ article.createdAt | date : 'longDate' }} </span>

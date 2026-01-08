@@ -7,6 +7,7 @@ import { ArticleService } from '../../shared/services/article/article.service';
 import { concatMap, of, ReplaySubject, tap } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { FlatArticle } from '../../shared/components/flat-article/flat-article';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-search-page',
@@ -22,14 +23,15 @@ export class Search implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private articleService: ArticleService,
+    private titleService: Title,
     private cd: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
+    this.titleService.setTitle('Artech - Artigos de tecnologia');
     this.activatedRoute.queryParams
       .pipe(
         concatMap((queryParam) => {
-
           if (queryParam['hashtags']) {
             this.hashtagsParams = queryParam['hashtags'].split(','); //text1,text2
             return this.articleService.searchArticleByHashtag(queryParam['hashtags']);

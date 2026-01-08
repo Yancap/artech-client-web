@@ -9,6 +9,7 @@ import { ModalMessageService } from '../../shared/services/modal-message/modal-m
 import { UserService } from '../../shared/services/user/user.service';
 import { ModalMessageComponent } from '../../shared/components/modal-message/modal-message';
 import { TypeModal } from '../../shared/models/enums/type-modal.enums';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-register',
@@ -30,10 +31,12 @@ export class Register implements OnInit {
   constructor(
     private userService: UserService,
     private modalMessageService: ModalMessageService,
+    private titleService: Title,
     private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.titleService.setTitle('Registrar-se');
     this.modalMessageService.modalStack$.subscribe((modalData) => {
       const componentRef = this.containerModalsRef.createComponent(ModalMessageComponent);
       componentRef.instance.details = modalData.details;

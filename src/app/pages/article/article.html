@@ -16,7 +16,7 @@
       <app-author [userData]="article.author" [createdAt]="article.createdAt" />
     </div>
     <div class="image">
-      <img src="{{ article.imageUrl }}" alt="" />
+      <img src="{{ article.imageUrl | srcImage }}" alt="" />
     </div>
     <div class="content" [innerHTML]="article.text | safeHtml"></div>
 

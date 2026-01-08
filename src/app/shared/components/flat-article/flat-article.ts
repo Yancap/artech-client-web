@@ -10,10 +10,11 @@ import {
 import { Router } from '@angular/router';
 import '@angular/common/locales/global/pt';
 import { DatePipe } from '@angular/common';
+import { SrcImagePipe } from '../../pipes/src-image/src-image.pipe';
 
 @Component({
   selector: 'app-flat-article',
-  imports: [DatePipe],
+  imports: [DatePipe, SrcImagePipe],
   providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   templateUrl: './flat-article.html',
   styleUrl: './flat-article.scss',

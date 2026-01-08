@@ -1,10 +1,11 @@
 import { DatePipe } from '@angular/common';
 import { Component, Input, LOCALE_ID } from '@angular/core';
 import '@angular/common/locales/global/pt';
+import { SrcImagePipe } from '../../pipes/src-image/src-image.pipe';
 
 @Component({
   selector: 'app-author',
-  imports: [DatePipe],
+  imports: [DatePipe, SrcImagePipe],
   providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   templateUrl: './author.html',
   styleUrl: './author.scss',

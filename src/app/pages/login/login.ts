@@ -8,6 +8,7 @@ import { ButtonComponent } from '../../shared/components/button/button';
 import { InputTextComponent } from '../../shared/components/input-text/input-text';
 import { ModalMessageComponent } from '../../shared/components/modal-message/modal-message';
 import { SvgComponent } from '../../shared/components/svg/svg';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -27,10 +28,12 @@ export class Login implements OnInit {
     private tokenService: TokenService,
     private activatedRoute: ActivatedRoute,
     private modalMessageService: ModalMessageService,
+    private titleService: Title,
     private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.titleService.setTitle('Login');
     this.activatedRoute.queryParams.subscribe((data) => {
       if ('goto' in data) {
         this.goTo = data['goto'];
