@@ -13,6 +13,7 @@ import { SrcImagePipe } from '../../pipes/src-image/src-image.pipe';
   selector: 'app-change-user-data',
   standalone: true,
   imports: [ButtonComponent, SvgComponent, InputTextComponent],
+  providers: [SrcImagePipe],
   templateUrl: './change-user-data.html',
   styleUrl: './change-user-data.scss',
 })
