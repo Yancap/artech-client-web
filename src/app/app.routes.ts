@@ -29,6 +29,7 @@ export const routes: Routes = [
   {
     component: Article,
     path: 'articles/:slug',
+  
   },
   {
     component: Categories,
