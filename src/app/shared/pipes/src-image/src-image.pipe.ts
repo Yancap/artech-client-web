@@ -8,7 +8,8 @@ export class SrcImagePipe implements PipeTransform {
 
   transform(urlImage: string | null): string {
     if (!urlImage || urlImage === '')  return '';
-    return environment.serverUrl + urlImage;
+    if (urlImage.includes('/storage/images/')) return environment.serverUrl + urlImage;
+    return urlImage;
   }
 
 }
