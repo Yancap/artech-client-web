@@ -1,59 +1,25 @@
-# ArtechClientWeb
+# Projeto Artech - Página de Artigos
+O Artech Client é uma aplicação front-end desenvolvida em Angular, cujo objetivo é disponibilizar uma plataforma moderna de artigos sobre tecnologia, com foco em organização de conteúdo, experiência do usuário e boas práticas de desenvolvimento front-end.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
+A aplicação foi projetada para consumir dados de uma API dedicada, apresentando artigos de forma dinâmica, responsiva e performática. O projeto segue uma arquitetura modular, explorando os principais conceitos do Angular, como componentização, serviços, roteamento, injeção de dependência e gerenciamento de estado da interface.
 
-## Development server
+O Artech Client oferece uma navegação intuitiva entre artigos, permitindo a visualização de conteúdos técnicos de maneira clara e estruturada. A interface foi desenvolvida com foco em usabilidade, garantindo uma boa experiência tanto em ambientes desktop quanto mobile.
 
-To start a local development server, run:
+Do ponto de vista técnico, o projeto serve como um estudo prático de:
 
-```bash
-ng serve
-```
+- Desenvolvimento de aplicações SPA (Single Page Application) com Angular
+- Organização de código em módulos e componentes reutilizáveis
+- Consumo de APIs REST
+- Boas práticas de versionamento e estruturação de projetos front-end
+- Preparação da aplicação para ambientes de build e deploy
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Este repositório representa a camada cliente da plataforma Artech e foi desenvolvido com fins educacionais e de aprimoramento técnico, podendo ser facilmente evoluído para cenários mais complexos, como autenticação, paginação avançada, SEO e renderização híbrida.
+## Credenciais de Login
 
-## Code scaffolding
+**Email:** usuario@email.com <br>
+**Senha:** 123
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
