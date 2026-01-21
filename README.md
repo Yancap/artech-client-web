@@ -13,7 +13,9 @@ Do ponto de vista técnico, o projeto serve como um estudo prático de:
 - Boas práticas de versionamento e estruturação de projetos front-end
 - Preparação da aplicação para ambientes de build e deploy
 
-Este repositório representa a camada cliente da plataforma Artech e foi desenvolvido com fins educacionais e de aprimoramento técnico, podendo ser facilmente evoluído para cenários mais complexos, como autenticação, paginação avançada, SEO e renderização híbrida.
+Este repositório representa a camada cliente da plataforma Artech e foi desenvolvido com fins educacionais e de aprimoramento técnico, podendo ser facilmente evoluído para cenários mais complexos, como autenticação, paginação avançada, SEO e renderização híbrida. Além disso, a página também apresenta um mecanismo avançado de pesquisa (search engine).
+
+
 ## Credenciais de Login
 
 **Email:** usuario@email.com <br>
